@@ -36,7 +36,7 @@ async function getdatafromServerForId(url, cb) {
 
 }
 
-export async function getmovieList(requestdata, cb) {
+export async function getFilmList(requestdata, cb) {
   let cb1 = undefined;
   if (typeof requestdata != 'function' && arguments.length > 1) {
     let searchParams = new URLSearchParams();
@@ -51,7 +51,7 @@ export async function getmovieList(requestdata, cb) {
   }
 
 }
-export async function getpeopleList(requestdata, cb) {
+export async function getPeopleList(requestdata, cb) {
   let cb1 = undefined;
   if (typeof requestdata != 'function' && arguments.length > 1) {
     let searchParams = new URLSearchParams();
@@ -68,7 +68,7 @@ export async function getpeopleList(requestdata, cb) {
 
 
 }
-export async function getplanetList(requestdata, cb) {
+export async function getPlanetList(requestdata, cb) {
   let cb1 = undefined;
   if (typeof requestdata != 'function' && arguments.length > 1) {
     let searchParams = new URLSearchParams();
@@ -85,7 +85,7 @@ export async function getplanetList(requestdata, cb) {
 
 
 }
-export async function getspeciesList(requestdata, cb) {
+export async function getSpeciesList(requestdata, cb) {
   let cb1 = undefined;
   if (typeof requestdata != 'function' && arguments.length > 1) {
     let searchParams = new URLSearchParams();
@@ -102,7 +102,7 @@ export async function getspeciesList(requestdata, cb) {
 
 
 }
-export async function getstarshipList(requestdata, cb) {
+export async function getStarshipList(requestdata, cb) {
   let cb1 = undefined;
   if (typeof requestdata != 'function' && arguments.length > 1) {
     let searchParams = new URLSearchParams();
@@ -119,7 +119,7 @@ export async function getstarshipList(requestdata, cb) {
 
 
 }
-export async function getvehicleList(requestdata, cb) {
+export async function getVehicleList(requestdata, cb) {
   let cb1 = undefined;
   if (typeof requestdata != 'function' && arguments.length > 1) {
     let searchParams = new URLSearchParams();
@@ -137,45 +137,46 @@ export async function getvehicleList(requestdata, cb) {
 
 
 
+
 }
 //for id
 
-export async function getmoviewithId(requestdata, cb,) {
+export async function getFilmbyId(requestdata, cb,) {
   if (typeof requestdata == 'number') {
     return getdatafromServerForId(`${BASEURL}/films/${requestdata}`, cb);
   } else {
     Promise.reject('id should be number')
   }
 }
-export async function getpeoplewithId(requestdata, cb) {
+export async function getPeoplebyId(requestdata, cb) {
   if (typeof requestdata == 'number') {
     return getdatafromServerForId(`${BASEURL}/people/${requestdata}`, cb);
   } else {
     Promise.reject('id should be number')
   }
 }
-export async function getplanetwithId(requestdata, cb) {
+export async function getPlanetbyId(requestdata, cb) {
   if (typeof requestdata == 'number') {
     return getdatafromServerForId(`${BASEURL}/planets/${requestdata}`, cb);
   } else {
     Promise.reject('id should be number')
   }
 }
-export async function getspecieswithId(requestdata, cb) {
+export async function getSpeciesbyId(requestdata, cb) {
   if (typeof requestdata == 'number') {
     return getdatafromServerForId(`${BASEURL}/species/${requestdata}`, cb);
   } else {
     Promise.reject('id should be number')
   }
 }
-export async function getstarshipwithId(requestdata, cb) {
+export async function getStarshipbyId(requestdata, cb) {
   if (typeof requestdata == 'number') {
     return getdatafromServerForId(`${BASEURL}/starships/${requestdata}`, cb);
   } else {
     Promise.reject('id should be number')
   }
 }
-export async function getvehiclewithId(requestdata, cb) {
+export async function getVehiclebyId(requestdata, cb) {
   if (typeof requestdata == 'number') {
     return getdatafromServerForId(`${BASEURL}/vehicles/${requestdata}`, cb);
   } else {
