@@ -37,17 +37,23 @@ async function getdatafromServerForId(url, cb) {
 }
 
 export async function getmovieList(requestdata, cb) {
-  if (requestdata) {
+  let cb1 = undefined;
+  if (typeof requestdata != 'function' && arguments.length > 1) {
     let searchParams = new URLSearchParams();
     for (let key of Object.keys(requestdata)) {
       let value = requestdata[key];
       searchParams.append(key, value);
     }
     return getdatafromServerInList(`${BASEURL}/films/?${searchParams.toString()}`, cb);
+  } else {
+    cb1 = arguments[0];
+    return getdatafromServerInList(`${BASEURL}/films/`, cb1);
   }
+
 }
 export async function getpeopleList(requestdata, cb) {
-  if (requestdata) {
+  let cb1 = undefined;
+  if (typeof requestdata != 'function' && arguments.length > 1) {
     let searchParams = new URLSearchParams();
     for (let key of Object.keys(requestdata)) {
       let value = requestdata[key];
@@ -55,10 +61,16 @@ export async function getpeopleList(requestdata, cb) {
     }
     return getdatafromServerInList(BASEURL + '/people/?' + searchParams.toString(), cb);
   }
+  else {
+    cb1 = arguments[0];
+    return getdatafromServerInList(`${BASEURL}/people/`, cb1);
+  }
+
 
 }
 export async function getplanetList(requestdata, cb) {
-  if (requestdata) {
+  let cb1 = undefined;
+  if (typeof requestdata != 'function' && arguments.length > 1) {
     let searchParams = new URLSearchParams();
     for (let key of Object.keys(requestdata)) {
       let value = requestdata[key];
@@ -66,10 +78,16 @@ export async function getplanetList(requestdata, cb) {
     }
     return getdatafromServerInList(BASEURL + '/planets/?' + searchParams.toString(), cb);
   }
+  else {
+    cb1 = arguments[0];
+    return getdatafromServerInList(`${BASEURL}/planets/`, cb1);
+  }
+
 
 }
 export async function getspeciesList(requestdata, cb) {
-  if (requestdata) {
+  let cb1 = undefined;
+  if (typeof requestdata != 'function' && arguments.length > 1) {
     let searchParams = new URLSearchParams();
     for (let key of Object.keys(requestdata)) {
       let value = requestdata[key];
@@ -77,10 +95,16 @@ export async function getspeciesList(requestdata, cb) {
     }
     return getdatafromServerInList(BASEURL + '/species/?' + searchParams.toString(), cb);
   }
+  else {
+    cb1= arguments[0];
+    return getdatafromServerInList(`${BASEURL}/species/`, cb1);
+  }
+
 
 }
 export async function getstarshipList(requestdata, cb) {
-  if (requestdata) {
+  let cb1 = undefined;
+  if (typeof requestdata != 'function' && arguments.length > 1) {
     let searchParams = new URLSearchParams();
     for (let key of Object.keys(requestdata)) {
       let value = requestdata[key];
@@ -88,10 +112,16 @@ export async function getstarshipList(requestdata, cb) {
     }
     return getdatafromServerInList(BASEURL + '/starships/?' + searchParams.toString(), cb);
   }
+  else {
+    cb1 = arguments[0];
+    return getdatafromServerInList(`${BASEURL}/starships/`, cb1);
+  }
+
 
 }
 export async function getvehicleList(requestdata, cb) {
-  if (requestdata) {
+  let cb1 = undefined;
+  if (typeof requestdata != 'function' && arguments.length > 1) {
     let searchParams = new URLSearchParams();
     for (let key of Object.keys(requestdata)) {
       let value = requestdata[key];
@@ -100,6 +130,12 @@ export async function getvehicleList(requestdata, cb) {
 
     return getdatafromServerInList(`${BASEURL}/vehicles/?${searchParams.toString()}`, cb);
   }
+  else {
+    cb1 = arguments[0];
+    return getdatafromServerInList(`${BASEURL}/vehicles/`, cb1);
+  }
+
+
 
 }
 //for id
@@ -146,6 +182,7 @@ export async function getvehiclewithId(requestdata, cb) {
     Promise.reject('id should be number')
   }
 }
+
 
 
 

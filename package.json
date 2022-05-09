@@ -36,13 +36,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://google.com",
+  "repository": "https://gitlab.emorphis.com/Pooja.Gayakwad/com.reactnativeswapicustomplugin",
   "author": "pooja.gayakwad <pooja.gayakwad@emorphis.in> (https://google.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://google.com/issues"
+    "url": "https://gitlab.emorphis.com/Pooja.Gayakwad/com.reactnativeswapicustomplugin/issues"
   },
-  "homepage": "https://google.com#readme",
+  "homepage": "https://gitlab.emorphis.com/Pooja.Gayakwad/com.reactnativeswapicustomplugin#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
