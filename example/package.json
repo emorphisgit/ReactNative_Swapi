@@ -1,0 +1,23 @@
+{
+  "name": "react-native-swapi-custom-plugin-example",
+  "description": "Example app for react-native-swapi-custom-plugin",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start"
+  },
+  "dependencies": {
+    "react": "17.0.2",
+    "react-native": "0.68.1",
+    "react-native-swapi-custom-plugin":"../"
+
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "@babel/runtime": "^7.17.9",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "metro-react-native-babel-preset": "^0.64.0"
+  }
+}
