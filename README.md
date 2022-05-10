@@ -1,10 +1,7 @@
 
-# Project Title
+# SWAPI-React-Native-Plugin
 
-A brief description of what this project does and who it's for
-
-
-## swapi plugin A simple wrapper to the Star Wars API. Include the library and then make calls to the various API end points
+A simple wrapper to the Star Wars API. Include the library and then make calls to the various API end points
 
 ## Installation
 
