@@ -6,21 +6,16 @@ A simple wrapper to the Star Wars API. Include the library and then make calls t
 
 getPeoplebyId(id) - Returns details of one person.\
 getPeopleList({page: page number, search: search string})(arguments are optional) - Returns details of everyone, search string. Defaults to page - 1 .\
-
 getFilmbyId(id) - Returns details of one film.\
 getFilmList({page: page number, search: search string})(arguments are optional) - Returns deatils of all films, paged,  search string. Defaults to page - 1 .\
-
 getPlanetbyId(id) - Returns details of one planet.\
 getPlanetList({page: page number, search: search string})(arguments are optional) - Returns all planets, paged,search string. Defaults to page - 1 .\
-
 getSpeciesbyId(id) - Returns details of one species.\
 getSpeciesList({page: page number, search: search string})(arguments are optional) - Returns all species, paged, search string. Defaults to page - 1 .\
-
 getStarshipbyId(id) - Returns details of one starship.\
 getStarshipList({page: page number], search: search string})(arguments are optional) - Returns all starships, paged, search string . Defaults to page - 1 .\
-
 getVehiclebyId(id) - Returns details of one vehicle.\
-getVehicleList({page: page number, search: search string})(arguments are optional) - Returns all vehicles, paged, search string. Defaults to page - 1 .
+getVehicleList({page: page number, search: search string})(arguments are optional) - Returns all vehicles, paged, search string. Defaults to page - 1.
 
 ## Installation
 
