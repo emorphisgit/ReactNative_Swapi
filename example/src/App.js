@@ -10,7 +10,7 @@ import {
 import {
   getFilmList, getPeopleList, getPlanetList, getSpeciesList, getStarshipList, getVehicleList,
   getFilmbyId, getPeoplebyId, getPlanetbyId, getSpeciesbyId, getStarshipbyId, getVehiclebyId
-} from 'react-native-swapi-custom-plugin';
+} from 'rn-swapi-plugin';
 import { Data, fun_name } from './dummy_data';
 
 
