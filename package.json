@@ -1,6 +1,6 @@
 {
-  "name": "react-native-swapi-custom-plugin",
-  "version": "0.1.6",
+  "name": "rn-swapi-plugin",
+  "version": "0.1.1",
   "description": "swapi plugin",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -36,13 +36,16 @@
     "ios",
     "android"
   ],
-  "repository": "https://gitlab.emorphis.com/Pooja.Gayakwad/com.reactnativeswapicustomplugin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emorphisgit/ReactNative_Swapi.git"
+  },
   "author": "pooja.gayakwad <pooja.gayakwad@emorphis.in> (https://google.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.emorphis.com/Pooja.Gayakwad/com.reactnativeswapicustomplugin/issues"
+    "url": "https://github.com/emorphisgit/ReactNative_Swapi.git/issues"
   },
-  "homepage": "https://gitlab.emorphis.com/Pooja.Gayakwad/com.reactnativeswapicustomplugin#readme",
+  "homepage": "https://github.com/emorphisgit/ReactNative_Swapi.git#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -146,5 +149,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.17.9"
+  },
+  "directories": {
+    "example": "example",
+    "lib": "lib"
   }
 }

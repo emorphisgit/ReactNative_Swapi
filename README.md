@@ -20,13 +20,13 @@ getVehicleList({page: page number, search: search string})(arguments are optiona
 ## Installation
 
 ```sh
-npm install react-native-swapi-custom-plugin
+npm install rn-swapi-plugin
 ```
 
 ## Usage
 
 ```js
-import { getFilmList,getFilmbyId} from "react-native-swapi-custom-plugin";
+import { getFilmList,getFilmbyId} from "rn-swapi-plugin";
 
 // get all Films
  getFilmList(function(data)
