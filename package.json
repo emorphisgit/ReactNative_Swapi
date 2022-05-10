@@ -1,6 +1,6 @@
 {
   "name": "rn-swapi-plugin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "swapi plugin",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
