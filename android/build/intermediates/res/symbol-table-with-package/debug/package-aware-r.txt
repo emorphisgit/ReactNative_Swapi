@@ -615,6 +615,7 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable autofill_inline_suggestion_chip_background
+drawable ic_launcher
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -903,6 +904,7 @@ string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string alert_description
+string app_name
 string catalyst_change_bundle_location
 string catalyst_copy_button
 string catalyst_debug
