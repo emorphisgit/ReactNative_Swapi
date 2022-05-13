@@ -8,7 +8,7 @@ buildscript {
     }
 
     dependencies {
-      classpath 'com.android.tools.build:gradle:3.5.3'
+      classpath 'com.android.tools.build:gradle:4.1.3'
     }
   }
 }
@@ -20,10 +20,10 @@ def safeExtGet(prop, fallback) {
 }
 
 android {
-  compileSdkVersion safeExtGet('SwapiCustomPlugin_compileSdkVersion', 29)
+  compileSdkVersion safeExtGet('SwapiCustomPlugin_compileSdkVersion', 30)
   defaultConfig {
-    minSdkVersion safeExtGet('SwapiCustomPlugin_minSdkVersion', 16)
-    targetSdkVersion safeExtGet('SwapiCustomPlugin_targetSdkVersion', 29)
+    minSdkVersion safeExtGet('SwapiCustomPlugin_minSdkVersion', 21)
+    targetSdkVersion safeExtGet('SwapiCustomPlugin_targetSdkVersion', 30)
     versionCode 1
     versionName "1.0"
 

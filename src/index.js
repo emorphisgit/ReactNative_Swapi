@@ -17,114 +17,119 @@ const SwapiCustomPlugin = NativeModules.SwapiCustomPlugin
     }
   );
 
-
-export function getAllFilm(queryparams) {
-  console.log('page number........ ', queryparams['page'], queryparams['search'])
-  if (queryparams) {
-    if ('page' in queryparams) {
-      return SwapiCustomPlugin.CallAllFilmApiByPage(queryparams['page']);
-    } else if ('search' in queryparams) {
-      return SwapiCustomPlugin.CallAllFilmApiBySearch(queryparams['search']);
+  export function getAllFilm(queryparams) {
+    console.log('page number........ ', queryparams)
+    if (queryparams) {
+      if ('page' in queryparams) {
+        return SwapiCustomPlugin.CallAllFilmApiByPage(queryparams);
+      } else if ('search' in queryparams) {
+        return SwapiCustomPlugin.CallAllFilmApiBySearch(queryparams);
+      }
+    } else {
+      return SwapiCustomPlugin.CallAllFilmApi();
     }
-  } else {
-    return SwapiCustomPlugin.CallAllFilmApi();
   }
-}
-
-
-export function getFilm(id) {
-  return SwapiCustomPlugin.CallFilmApi(id);
-}
-
-
-
-export function getAllPeople(queryparams) {
-  if (queryparams) {
-    if ('search' in queryparams) {
-      return SwapiCustomPlugin.CallAllPeopleApiBySearch(queryparams['search']);
-    } else if ('page' in queryparams) {
-      return SwapiCustomPlugin.CallAllPeopleApiByPage(queryparams['page']);
+  
+  export function getFilm(id) {
+    const qparams = { "id": id };
+    return SwapiCustomPlugin.CallFilmApi(qparams);
+  }
+  
+  
+  
+  export function getAllPeople(queryparams) {
+    if (queryparams) {
+      if ('search' in queryparams) {
+        return SwapiCustomPlugin.CallAllPeopleApiBySearch(queryparams);
+      } else if ('page' in queryparams) {
+        return SwapiCustomPlugin.CallAllPeopleApiByPage(queryparams);
+      }
+    } else {
+      return SwapiCustomPlugin.CallAllPeopleApi();
     }
-  } else {
-    return SwapiCustomPlugin.CallAllPeopleApi();
   }
-}
-export function getPeople(id) {
-  return SwapiCustomPlugin.CallPeopleApi(id);
-
-}
-
-
-export function getAllPlanet(queryparams) {
-  if (queryparams) {
-    if ('page' in queryparams) {
-      return SwapiCustomPlugin.CallAllPlanetApiByPage(queryparams['page']);
-    } else if ('search' in queryparams) {
-      return SwapiCustomPlugin.CallAllPlanetApiBySearch(queryparams['search']);
+  export function getPeople(id) {
+    const qparams = { "id": id };
+    return SwapiCustomPlugin.CallPeopleApi(qparams);
+  
+  }
+  
+  
+  export function getAllPlanet(queryparams) {
+    if (queryparams) {
+      if ('page' in queryparams) {
+        return SwapiCustomPlugin.CallAllPlanetApiByPage(queryparams);
+      } else if ('search' in queryparams) {
+        return SwapiCustomPlugin.CallAllPlanetApiBySearch(queryparams);
+      }
+    } else {
+      return SwapiCustomPlugin.CallAllPlanetApi();
+  
     }
-  } else {
-    return SwapiCustomPlugin.CallAllPlanetApi();
-
   }
-}
-export function getPlanet(id) {
-  return SwapiCustomPlugin.CallPlanetApi(id);
-}
-
-
-
-export function getAllSpecies(queryparams) {
-  if (queryparams) {
-    if ('page' in queryparams) {
-      return SwapiCustomPlugin.CallAllSpeciesApiByPage(queryparams['page']);
-    } else if ('search' in queryparams) {
-      return SwapiCustomPlugin.CallAllSpeciesApiBySearch(queryparams['search']);
+  export function getPlanet(id) {
+    const qparams = { "id": id };
+    return SwapiCustomPlugin.CallPlanetApi(qparams);
+  }
+  
+  
+  
+  export function getAllSpecies(queryparams) {
+    if (queryparams) {
+      if ('page' in queryparams) {
+        return SwapiCustomPlugin.CallAllSpeciesApiByPage(queryparams);
+      } else if ('search' in queryparams) {
+        return SwapiCustomPlugin.CallAllSpeciesApiBySearch(queryparams);
+      }
+    } else {
+      return SwapiCustomPlugin.CallAllSpeciesApi();
     }
-  } else {
-    return SwapiCustomPlugin.CallAllSpeciesApi();
+  
   }
-
-}
-export function getSpecies(id) {
-  return SwapiCustomPlugin.CallSpeciesApi(id);
-}
-
-
-export function getAllStarship(queryparams) {
-  if (queryparams) {
-    if ('page' in queryparams) {
-      return SwapiCustomPlugin.CallAllStarshipApiByPage(queryparams['page']);
-    } else if ('search' in queryparams) {
-      return SwapiCustomPlugin.CallAllStarshipApiBySearch(queryparams['search']);
+  export function getSpecies(id) {
+    const qparams = { "id": id };
+    return SwapiCustomPlugin.CallSpeciesApi(qparams);
+  }
+  
+  
+  export function getAllStarship(queryparams) {
+    if (queryparams) {
+      if ('page' in queryparams) {
+        return SwapiCustomPlugin.CallAllStarshipApiByPage(queryparams);
+      } else if ('search' in queryparams) {
+        return SwapiCustomPlugin.CallAllStarshipApiBySearch(queryparams);
+      }
+    } else {
+      return SwapiCustomPlugin.CallAllStarshipApi();
+  
     }
-  } else {
-    return SwapiCustomPlugin.CallAllStarshipApi();
-
+  
   }
-
-}
-export function getStarship(id) {
-  return SwapiCustomPlugin.CallStarshipApi(id);
-}
-
-
-
-export function getAllVehicle(queryparams) {
-  if (queryparams) {
-    if ('page' in queryparams) {
-      return SwapiCustomPlugin.CallAllVehicleApiByPage(queryparams['page']);
-    } else if ('search' in queryparams) {
-      return SwapiCustomPlugin.CallAllVehicleApiBySearch(queryparams['search']);
+  export function getStarship(id) {
+    const qparams = { "id": id };
+    return SwapiCustomPlugin.CallStarshipApi(qparams);
+  }
+  
+  
+  
+  export function getAllVehicle(queryparams) {
+    if (queryparams) {
+      if ('page' in queryparams) {
+        return SwapiCustomPlugin.CallAllVehicleApiByPage(queryparams);
+      } else if ('search' in queryparams) {
+        return SwapiCustomPlugin.CallAllVehicleApiBySearch(queryparams);
+      }
+    } else {
+      return SwapiCustomPlugin.CallAllVehicleApi();
+  
     }
-  } else {
-    return SwapiCustomPlugin.CallAllVehicleApi();
-
   }
-}
-export function getVehicle(id) {
-  return SwapiCustomPlugin.CallVehicleApi(id);
-}
-
+  export function getVehicle(id) {
+    const qparams = { "id": id };
+    return SwapiCustomPlugin.CallVehicleApi(qparams);
+  }
+  
+  
 
 
 

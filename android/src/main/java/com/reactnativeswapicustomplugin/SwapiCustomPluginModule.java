@@ -1,19 +1,23 @@
 package com.reactnativeswapicustomplugin;
 
+
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.ReadableMapKeySetIterator;
+import com.facebook.react.bridge.ReadableType;
 import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.WritableNativeArray;
 import com.facebook.react.bridge.WritableNativeMap;
-import com.facebook.react.module.annotations.ReactModule;
 import com.google.gson.Gson;
 import com.swapi.swModels.SWFilm;
 import com.swapi.swModels.SWModelList;
@@ -31,11 +35,12 @@ import org.json.JSONObject;
 
 import java.util.Iterator;
 
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-@ReactModule(name = SwapiCustomPluginModule.NAME)
+//@ReactModule(name = SwapiCustomPluginModule.NAME)
 public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   public static final String NAME = "SwapiCustomPlugin";
   public static final String TAG = SwapiCustomPluginModule.class.getName();
@@ -87,8 +92,9 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void CallPeopleApi(int id, Promise promise) {
-    Call<SWPeople> call = swapiInterface.getPeopleByID(id);
+  public void CallPeopleApi(ReadableMap readableMap, Promise promise) throws JSONException {
+    JSONObject jsonObject = readableMapToJson(readableMap);
+    Call<SWPeople> call = swapiInterface.getPeopleByID(jsonObject.getInt("id"));
     call.enqueue(new Callback<SWPeople>() {
       @Override
       public void onResponse(@NonNull Call<SWPeople> call, @NonNull Response<SWPeople> response) {
@@ -152,8 +158,10 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void CallFilmApi(int id, Promise promise) {
-    Call<SWFilm> call = swapiInterface.getFilmByID(id);
+  public void CallFilmApi(ReadableMap readableMap, Promise promise) throws JSONException {
+    JSONObject jsonObject = readableMapToJson(readableMap);
+    Log.e(TAG, "jsonobject>>>>>>> " + jsonObject);
+    Call<SWFilm> call = swapiInterface.getFilmByID(jsonObject.getInt("id"));
     call.enqueue(new Callback<SWFilm>() {
       @Override
       public void onResponse(@NonNull Call<SWFilm> call, @NonNull Response<SWFilm> response) {
@@ -218,8 +226,9 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void CallPlanetApi(int id, Promise promise) {
-    Call<SWPlanet> call = swapiInterface.getPlanetByID(id);
+  public void CallPlanetApi(ReadableMap readableMap, Promise promise) throws JSONException {
+    JSONObject jsonObject = readableMapToJson(readableMap);
+    Call<SWPlanet> call = swapiInterface.getPlanetByID(jsonObject.getInt("id"));
     call.enqueue(new Callback<SWPlanet>() {
       @Override
       public void onResponse(@NonNull Call<SWPlanet> call, @NonNull Response<SWPlanet> response) {
@@ -283,8 +292,9 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void CallSpeciesApi(int id, Promise promise) {
-    Call<SWSpecies> call = swapiInterface.getSpeciesByID(id);
+  public void CallSpeciesApi(ReadableMap readableMap, Promise promise) throws JSONException {
+    JSONObject jsonObject = readableMapToJson(readableMap);
+    Call<SWSpecies> call = swapiInterface.getSpeciesByID(jsonObject.getInt("id"));
     call.enqueue(new Callback<SWSpecies>() {
       @Override
       public void onResponse(@NonNull Call<SWSpecies> call, @NonNull Response<SWSpecies> response) {
@@ -348,8 +358,9 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void CallStarshipApi(int id, Promise promise) {
-    Call<SWStarship> call = swapiInterface.getStarshipByID(id);
+  public void CallStarshipApi(ReadableMap readableMap, Promise promise) throws JSONException {
+    JSONObject jsonObject = readableMapToJson(readableMap);
+    Call<SWStarship> call = swapiInterface.getStarshipByID(jsonObject.getInt("id"));
     call.enqueue(new Callback<SWStarship>() {
       @Override
       public void onResponse(@NonNull Call<SWStarship> call, @NonNull Response<SWStarship> response) {
@@ -413,8 +424,9 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void CallVehicleApi(int id, Promise promise) {
-    Call<SWVehicle> call = swapiInterface.getVehicleByID(id);
+  public void CallVehicleApi(ReadableMap readableMap, Promise promise) throws JSONException {
+    JSONObject jsonObject = readableMapToJson(readableMap);
+    Call<SWVehicle> call = swapiInterface.getVehicleByID(jsonObject.getInt("id"));
     call.enqueue(new Callback<SWVehicle>() {
       @Override
       public void onResponse(@NonNull Call<SWVehicle> call, @NonNull Response<SWVehicle> response) {
@@ -446,9 +458,9 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
 
   // with search arguments
   @ReactMethod
-  public void CallAllPeopleApiBySearch(String search, Promise promise) {
-
-    Call<SWModelList<SWPeople>> call = swapiInterface.getPeopleSearch(search);
+  public void CallAllPeopleApiBySearch(ReadableMap readableMap, Promise promise) throws JSONException {
+    JSONObject jsonObject = readableMapToJson(readableMap);
+    Call<SWModelList<SWPeople>> call = swapiInterface.getPeopleSearch(jsonObject.getString("search"));
     call.enqueue(new Callback<SWModelList<SWPeople>>() {
       @Override
       public void onResponse(Call<SWModelList<SWPeople>> call, retrofit2.Response<SWModelList<SWPeople>> response) {
@@ -485,8 +497,9 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void CallAllFilmApiBySearch(String search, Promise promise) {
-    Call<SWModelList<SWFilm>> call = swapiInterface.getFilmSearch(search);
+  public void CallAllFilmApiBySearch(ReadableMap readableMap, Promise promise) throws JSONException {
+    JSONObject jsonObject = readableMapToJson(readableMap);
+    Call<SWModelList<SWFilm>> call = swapiInterface.getFilmSearch(jsonObject.getString("search"));
     call.enqueue(new Callback<SWModelList<SWFilm>>() {
       @Override
       public void onResponse(Call<SWModelList<SWFilm>> call, retrofit2.Response<SWModelList<SWFilm>> response) {
@@ -523,8 +536,9 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void CallAllPlanetApiBySearch(String search, Promise promise) {
-    Call<SWModelList<SWPlanet>> call = swapiInterface.getPlanetSearch(search);
+  public void CallAllPlanetApiBySearch(ReadableMap readableMap, Promise promise) throws JSONException {
+    JSONObject jsonObject = readableMapToJson(readableMap);
+    Call<SWModelList<SWPlanet>> call = swapiInterface.getPlanetSearch(jsonObject.getString("search"));
     call.enqueue(new Callback<SWModelList<SWPlanet>>() {
       @Override
       public void onResponse(Call<SWModelList<SWPlanet>> call, retrofit2.Response<SWModelList<SWPlanet>> response) {
@@ -561,8 +575,9 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void CallAllSpeciesApiBySearch(String search, Promise promise) {
-    Call<SWModelList<SWSpecies>> call = swapiInterface.getSpeciesSearch(search);
+  public void CallAllSpeciesApiBySearch(ReadableMap readableMap, Promise promise) throws JSONException {
+    JSONObject jsonObject = readableMapToJson(readableMap);
+    Call<SWModelList<SWSpecies>> call = swapiInterface.getSpeciesSearch(jsonObject.getString("search"));
     call.enqueue(new Callback<SWModelList<SWSpecies>>() {
       @Override
       public void onResponse(Call<SWModelList<SWSpecies>> call, retrofit2.Response<SWModelList<SWSpecies>> response) {
@@ -599,8 +614,9 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void CallAllStarshipApiBySearch(String search, Promise promise) {
-    Call<SWModelList<SWStarship>> call = swapiInterface.getStarshipSearch(search);
+  public void CallAllStarshipApiBySearch(ReadableMap readableMap, Promise promise) throws JSONException {
+    JSONObject jsonObject = readableMapToJson(readableMap);
+    Call<SWModelList<SWStarship>> call = swapiInterface.getStarshipSearch(jsonObject.getString("search"));
     call.enqueue(new Callback<SWModelList<SWStarship>>() {
       @Override
       public void onResponse(Call<SWModelList<SWStarship>> call, retrofit2.Response<SWModelList<SWStarship>> response) {
@@ -637,8 +653,9 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void CallAllVehicleApiBySearch(String search, Promise promise) {
-    Call<SWModelList<SWVehicle>> call = swapiInterface.getVehicleSearch(search);
+  public void CallAllVehicleApiBySearch(ReadableMap readableMap, Promise promise) throws JSONException {
+    JSONObject jsonObject = readableMapToJson(readableMap);
+    Call<SWModelList<SWVehicle>> call = swapiInterface.getVehicleSearch(jsonObject.getString("search"));
     call.enqueue(new Callback<SWModelList<SWVehicle>>() {
       @Override
       public void onResponse(Call<SWModelList<SWVehicle>> call, retrofit2.Response<SWModelList<SWVehicle>> response) {
@@ -678,9 +695,9 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   // api with page
 
   @ReactMethod
-  public void CallAllPeopleApiByPage(int page, Promise promise) {
-
-    Call<SWModelList<SWPeople>> call = swapiInterface.getPeoplesByPages(page);
+  public void CallAllPeopleApiByPage(ReadableMap readableMap, Promise promise) throws JSONException {
+    JSONObject jsonObject = readableMapToJson(readableMap);
+    Call<SWModelList<SWPeople>> call = swapiInterface.getPeoplesByPages(jsonObject.getInt("page"));
     call.enqueue(new Callback<SWModelList<SWPeople>>() {
       @Override
       public void onResponse(Call<SWModelList<SWPeople>> call, retrofit2.Response<SWModelList<SWPeople>> response) {
@@ -717,8 +734,10 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void CallAllFilmApiByPage(int page, Promise promise) {
-    Call<SWModelList<SWFilm>> call = swapiInterface.getFilmsByPages(page);  // url wrong
+  public void CallAllFilmApiByPage(ReadableMap readableMap, Promise promise) throws JSONException {
+    JSONObject jsonObject = readableMapToJson(readableMap);
+    Log.d(TAG, "jsobject............  " + jsonObject);
+    Call<SWModelList<SWFilm>> call = swapiInterface.getFilmsByPages(jsonObject.getInt("page"));
     call.enqueue(new Callback<SWModelList<SWFilm>>() {
       @Override
       public void onResponse(Call<SWModelList<SWFilm>> call, retrofit2.Response<SWModelList<SWFilm>> response) {
@@ -755,8 +774,9 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void CallAllPlanetApiByPage(int page, Promise promise) {
-    Call<SWModelList<SWPlanet>> call = swapiInterface.getPlanetByPages(page);   // wrong method name
+  public void CallAllPlanetApiByPage(ReadableMap readableMap, Promise promise) throws JSONException {
+    JSONObject jsonObject = readableMapToJson(readableMap);
+    Call<SWModelList<SWPlanet>> call = swapiInterface.getPlanetByPages(jsonObject.getInt("page"));   // wrong method name
     call.enqueue(new Callback<SWModelList<SWPlanet>>() {
       @Override
       public void onResponse(Call<SWModelList<SWPlanet>> call, retrofit2.Response<SWModelList<SWPlanet>> response) {
@@ -793,8 +813,9 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void CallAllSpeciesApiByPage(int page, Promise promise) {
-    Call<SWModelList<SWSpecies>> call = swapiInterface.getSpeciesByPages(page);
+  public void CallAllSpeciesApiByPage(ReadableMap readableMap, Promise promise) throws JSONException {
+    JSONObject jsonObject = readableMapToJson(readableMap);
+    Call<SWModelList<SWSpecies>> call = swapiInterface.getSpeciesByPages(jsonObject.getInt("page"));
     call.enqueue(new Callback<SWModelList<SWSpecies>>() {
       @Override
       public void onResponse(Call<SWModelList<SWSpecies>> call, retrofit2.Response<SWModelList<SWSpecies>> response) {
@@ -831,8 +852,9 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void CallAllStarshipApiByPage(int page, Promise promise) {
-    Call<SWModelList<SWStarship>> call = swapiInterface.getStarshipByPages(page);
+  public void CallAllStarshipApiByPage(ReadableMap readableMap, Promise promise) throws JSONException {
+    JSONObject jsonObject = readableMapToJson(readableMap);
+    Call<SWModelList<SWStarship>> call = swapiInterface.getStarshipByPages(jsonObject.getInt("page"));
     call.enqueue(new Callback<SWModelList<SWStarship>>() {
       @Override
       public void onResponse(Call<SWModelList<SWStarship>> call, retrofit2.Response<SWModelList<SWStarship>> response) {
@@ -869,8 +891,9 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void CallAllVehicleApiByPage(int page, Promise promise) {
-    Call<SWModelList<SWVehicle>> call = swapiInterface.getVehicleByPages(page);
+  public void CallAllVehicleApiByPage(ReadableMap readableMap, Promise promise) throws JSONException {
+    JSONObject jsonObject = readableMapToJson(readableMap);
+    Call<SWModelList<SWVehicle>> call = swapiInterface.getVehicleByPages(jsonObject.getInt("page"));
     call.enqueue(new Callback<SWModelList<SWVehicle>>() {
       @Override
       public void onResponse(Call<SWModelList<SWVehicle>> call, retrofit2.Response<SWModelList<SWVehicle>> response) {
@@ -971,5 +994,44 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
     }
 
     return writableArray;
+  }
+
+  @Nullable
+  public static JSONObject readableMapToJson(ReadableMap readableMap) {
+    JSONObject jsonObject = new JSONObject();
+    if (readableMap == null) {
+      return null;
+    }
+    ReadableMapKeySetIterator iterator = readableMap.keySetIterator();
+    if (!iterator.hasNextKey()) {
+      return null;
+    }
+    while (iterator.hasNextKey()) {
+      String key = iterator.nextKey();
+      ReadableType readableType = readableMap.getType(key);
+      try {
+        switch (readableType) {
+          case Null:
+            jsonObject.put(key, null);
+            break;
+          case Boolean:
+            jsonObject.put(key, readableMap.getBoolean(key));
+            break;
+          case Number:
+            jsonObject.put(key, readableMap.getInt(key));
+            break;
+          case String:
+            jsonObject.put(key, readableMap.getString(key));
+            break;
+          case Map:
+            jsonObject.put(key, readableMapToJson(readableMap.getMap(key)));
+            break;
+          default:
+            // Do nothing and fail silently
+        }
+      } catch (JSONException ex) {
+      }
+    }
+    return jsonObject;
   }
 }
