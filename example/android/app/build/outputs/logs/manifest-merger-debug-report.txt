@@ -9,7 +9,7 @@ MERGED from [com.facebook.flipper:flipper:0.54.0] /home/pooja/.gradle/caches/tra
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.54.0] /home/pooja/.gradle/caches/transforms-2/files-2.1/bd2cab46fd45b530a274001375333ead/flipper-network-plugin-0.54.0/AndroidManifest.xml:8:1-15:12
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.54.0] /home/pooja/.gradle/caches/transforms-2/files-2.1/dd7dfafbb0af41b4347f18654ea5c436/flipper-fresco-plugin-0.54.0/AndroidManifest.xml:8:1-15:12
 MERGED from [:reactnativeswapicustomplugin] /home/pooja/Desktop/swapi-custom-plugin/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:rn-swapi-plugin] /home/pooja/Desktop/swapi-custom-plugin/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:rn-swapi-plugin] /home/pooja/Desktop/swapi-custom-plugin/example/node_modules/rn-swapi-plugin/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.react:react-native:0.68.1] /home/pooja/.gradle/caches/transforms-2/files-2.1/5dd73d0949283917191f9ba88e6e8852/jetified-react-native-0.68.1/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/pooja/.gradle/caches/transforms-2/files-2.1/37b6f551bc5ae153b0b627de8f563815/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [org.webkit:android-jsc:r250230] /home/pooja/.gradle/caches/transforms-2/files-2.1/bb966a44ab77f03c16d3d0aacbb1e134/android-jsc-r250230/AndroidManifest.xml:2:1-11:12
@@ -163,8 +163,8 @@ MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.54.0] /home/pooja/.gra
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.54.0] /home/pooja/.gradle/caches/transforms-2/files-2.1/dd7dfafbb0af41b4347f18654ea5c436/flipper-fresco-plugin-0.54.0/AndroidManifest.xml:11:5-13:41
 MERGED from [:reactnativeswapicustomplugin] /home/pooja/Desktop/swapi-custom-plugin/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:reactnativeswapicustomplugin] /home/pooja/Desktop/swapi-custom-plugin/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:rn-swapi-plugin] /home/pooja/Desktop/swapi-custom-plugin/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:rn-swapi-plugin] /home/pooja/Desktop/swapi-custom-plugin/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:rn-swapi-plugin] /home/pooja/Desktop/swapi-custom-plugin/example/node_modules/rn-swapi-plugin/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:rn-swapi-plugin] /home/pooja/Desktop/swapi-custom-plugin/example/node_modules/rn-swapi-plugin/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.68.1] /home/pooja/.gradle/caches/transforms-2/files-2.1/5dd73d0949283917191f9ba88e6e8852/jetified-react-native-0.68.1/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.react:react-native:0.68.1] /home/pooja/.gradle/caches/transforms-2/files-2.1/5dd73d0949283917191f9ba88e6e8852/jetified-react-native-0.68.1/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/pooja/.gradle/caches/transforms-2/files-2.1/37b6f551bc5ae153b0b627de8f563815/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
