@@ -13,7 +13,7 @@ import {
 import { Data, fun_name } from './dummy_data';
 
 
-export default function App() {
+export default function Swapi_App() {
 
   var myObject = new MyClass();
 
