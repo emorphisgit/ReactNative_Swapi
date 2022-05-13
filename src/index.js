@@ -31,8 +31,7 @@ const SwapiCustomPlugin = NativeModules.SwapiCustomPlugin
   }
   
   export function getFilm(id) {
-    const qparams = { "id": id };
-    return SwapiCustomPlugin.CallFilmApi(qparams);
+    return SwapiCustomPlugin.CallFilmApi({ "id": id });
   }
   
   
@@ -49,8 +48,7 @@ const SwapiCustomPlugin = NativeModules.SwapiCustomPlugin
     }
   }
   export function getPeople(id) {
-    const qparams = { "id": id };
-    return SwapiCustomPlugin.CallPeopleApi(qparams);
+    return SwapiCustomPlugin.CallPeopleApi({ "id": id });
   
   }
   
@@ -68,8 +66,7 @@ const SwapiCustomPlugin = NativeModules.SwapiCustomPlugin
     }
   }
   export function getPlanet(id) {
-    const qparams = { "id": id };
-    return SwapiCustomPlugin.CallPlanetApi(qparams);
+    return SwapiCustomPlugin.CallPlanetApi({ "id": id });
   }
   
   
@@ -87,8 +84,7 @@ const SwapiCustomPlugin = NativeModules.SwapiCustomPlugin
   
   }
   export function getSpecies(id) {
-    const qparams = { "id": id };
-    return SwapiCustomPlugin.CallSpeciesApi(qparams);
+    return SwapiCustomPlugin.CallSpeciesApi({ "id": id });
   }
   
   
@@ -106,8 +102,7 @@ const SwapiCustomPlugin = NativeModules.SwapiCustomPlugin
   
   }
   export function getStarship(id) {
-    const qparams = { "id": id };
-    return SwapiCustomPlugin.CallStarshipApi(qparams);
+    return SwapiCustomPlugin.CallStarshipApi({ "id": id });
   }
   
   
@@ -125,8 +120,7 @@ const SwapiCustomPlugin = NativeModules.SwapiCustomPlugin
     }
   }
   export function getVehicle(id) {
-    const qparams = { "id": id };
-    return SwapiCustomPlugin.CallVehicleApi(qparams);
+    return SwapiCustomPlugin.CallVehicleApi({ "id": id });
   }
   
   

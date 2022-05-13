@@ -53,12 +53,12 @@ export default function Swapi_App() {
     //for id
 
     this.getmoviesById = async () => {
-      await getFilm(2).then((array) => {
+      await getFilm("2").then((array) => {
         console.log("Result of.....", array);
       })
     }
     this.getPersonById = async () => {
-      await getPeople(2).then((array) => {
+      await getPeople("2").then((array) => {
         console.log("Result of.....", array);
       })
     }
