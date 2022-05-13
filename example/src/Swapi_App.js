@@ -25,7 +25,7 @@ export default function Swapi_App() {
       })
     }
     this.getPersons = async () => {
-      await getAllPeople({search:'Luke'}).then((array) => {
+      await getAllPeople().then((array) => {
         console.log("Result of.....", array);
       })
     }

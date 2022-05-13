@@ -1,12 +1,7 @@
 package com.reactnativeswapicustomplugin;
-
-
 import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -28,14 +23,10 @@ import com.swapi.swModels.SWStarship;
 import com.swapi.swModels.SWVehicle;
 import com.swapi.swNetworkCall.SWAPIs;
 import com.swapi.swNetworkCall.SWClient;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.Iterator;
-
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -45,7 +36,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   public static final String NAME = "SwapiCustomPlugin";
   public static final String TAG = SwapiCustomPluginModule.class.getName();
   public SWAPIs swapiInterface;
-
   public SwapiCustomPluginModule(ReactApplicationContext reactContext) {
     super(reactContext);
     swapiInterface = SWClient.getInstanceServices();
@@ -73,19 +63,17 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
               WritableMap collectionDictionary = convertJsonToMap(jsonArray.getJSONObject(i));
               array.pushMap(collectionDictionary);
             }
-            Log.d(TAG, "CallAllPeopleApi....." + array);
             promise.resolve(array);
           }
         } catch (JSONException e) {
           promise.reject(e);
         }
       }
-
       @Override
       public void onFailure(@NonNull Call<SWModelList<SWPeople>> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallAllPeopleApi error ...... " + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
 
     });
@@ -104,7 +92,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
           if (response.code() == 200) {
             JSONObject jsonObject = new JSONObject(gson.toJson(res));
             WritableMap collectionDictionary = convertJsonToMap(jsonObject);
-            Log.d(TAG, "CallPeopleApi....." + collectionDictionary);
             promise.resolve(collectionDictionary);
           } else {
             promise.resolve("no data found");
@@ -113,12 +100,11 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
           promise.reject(e);
         }
       }
-
       @Override
       public void onFailure(@NonNull Call<SWPeople> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallPeopleApi error" + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
     });
   }
@@ -151,7 +137,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWModelList<SWFilm>> call, @NonNull Throwable t) {
         call.cancel();
         Log.e(TAG, "CallAllFilmApi error ...... " + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
 
     });
@@ -160,7 +146,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void CallFilmApi(ReadableMap readableMap, Promise promise) throws JSONException {
     JSONObject jsonObject = readableMapToJson(readableMap);
-    Log.e(TAG, "jsonobject>>>>>>> " + jsonObject);
     Call<SWFilm> call = swapiInterface.getFilmByID(jsonObject.getInt("id"));
     call.enqueue(new Callback<SWFilm>() {
       @Override
@@ -171,7 +156,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
           if (response.code() == 200) {
             JSONObject jsonObject = new JSONObject(gson.toJson(res));
             WritableMap collectionDictionary = convertJsonToMap(jsonObject);
-            Log.d(TAG, "CallFilmApi....." + collectionDictionary);
             promise.resolve(collectionDictionary);
           } else {
             promise.resolve("no data found");
@@ -185,7 +169,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWFilm> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallFilmApi error" + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
     });
   }
@@ -207,7 +191,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
               WritableMap collectionDictionary = convertJsonToMap(jsonArray.getJSONObject(i));
               array.pushMap(collectionDictionary);
             }
-            Log.d(TAG, "CallAllPlanetApi....." + array);
             promise.resolve(array);
           }
         } catch (JSONException e) {
@@ -219,7 +202,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWModelList<SWPlanet>> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallAllPlanetApi error ...... " + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
 
     });
@@ -238,7 +221,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
           if (response.code() == 200) {
             JSONObject jsonObject = new JSONObject(gson.toJson(res));
             WritableMap collectionDictionary = convertJsonToMap(jsonObject);
-            Log.d(TAG, "CallPlanetApi....." + collectionDictionary);
             promise.resolve(collectionDictionary);
           } else {
             promise.resolve("no data found");
@@ -252,7 +234,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWPlanet> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallPlanetApi error" + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
     });
   }
@@ -273,7 +255,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
               WritableMap collectionDictionary = convertJsonToMap(jsonArray.getJSONObject(i));
               array.pushMap(collectionDictionary);
             }
-            Log.d(TAG, "CallAllSpeciesApi....." + array);
             promise.resolve(array);
           }
         } catch (JSONException e) {
@@ -285,7 +266,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWModelList<SWSpecies>> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, " CallAllSpeciesApi error ...... " + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
 
     });
@@ -304,7 +285,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
           if (response.code() == 200) {
             JSONObject jsonObject = new JSONObject(gson.toJson(res));
             WritableMap collectionDictionary = convertJsonToMap(jsonObject);
-            Log.d(TAG, "CallSpeciesApi....." + collectionDictionary);
             promise.resolve(collectionDictionary);
           } else {
             promise.resolve("no data found");
@@ -318,7 +298,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWSpecies> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallSpeciesApi error" + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
     });
   }
@@ -339,7 +319,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
               WritableMap collectionDictionary = convertJsonToMap(jsonArray.getJSONObject(i));
               array.pushMap(collectionDictionary);
             }
-            Log.d(TAG, "CallAllStarshipApi....." + array);
             promise.resolve(array);
           }
         } catch (JSONException e) {
@@ -351,7 +330,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWModelList<SWStarship>> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallAllStarshipApi error ...... " + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
 
     });
@@ -370,7 +349,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
           if (response.code() == 200) {
             JSONObject jsonObject = new JSONObject(gson.toJson(res));
             WritableMap collectionDictionary = convertJsonToMap(jsonObject);
-            Log.d(TAG, "CallStarshipApi....." + collectionDictionary);
             promise.resolve(collectionDictionary);
           } else {
             promise.resolve("no data found");
@@ -384,7 +362,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWStarship> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallStarshipApi error " + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
     });
   }
@@ -405,7 +383,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
               WritableMap collectionDictionary = convertJsonToMap(jsonArray.getJSONObject(i));
               array.pushMap(collectionDictionary);
             }
-            Log.d(TAG, "CallAllVehicleApi....." + array);
             promise.resolve(array);
           }
         } catch (JSONException e) {
@@ -417,7 +394,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWModelList<SWVehicle>> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallAllVehicleApi error ...... " + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
 
     });
@@ -436,7 +413,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
           if (response.code() == 200) {
             JSONObject jsonObject = new JSONObject(gson.toJson(res));
             WritableMap collectionDictionary = convertJsonToMap(jsonObject);
-            Log.d(TAG, "CallVehicleApi....." + collectionDictionary);
             promise.resolve(collectionDictionary);
           } else {
             promise.resolve("no data found");
@@ -450,7 +426,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWVehicle> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallVehicleApi error" + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
     });
   }
@@ -475,7 +451,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
                 WritableMap collectionDictionary = convertJsonToMap(jsonArray.getJSONObject(i));
                 array.pushMap(collectionDictionary);
               }
-              Log.d(TAG, "CallAllPeopleApiBySearch....." + array);
               promise.resolve(array);
             }
           } else {
@@ -490,7 +465,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWModelList<SWPeople>> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallAllPeopleApiBySearch error ...... " + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
 
     });
@@ -514,7 +489,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
                 WritableMap collectionDictionary = convertJsonToMap(jsonArray.getJSONObject(i));
                 array.pushMap(collectionDictionary);
               }
-              Log.d(TAG, "CallAllFilmApiBySearch....." + array);
               promise.resolve(array);
             }
           } else {
@@ -529,7 +503,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWModelList<SWFilm>> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallAllFilmApiBySearch error ...... " + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
 
     });
@@ -553,7 +527,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
                 WritableMap collectionDictionary = convertJsonToMap(jsonArray.getJSONObject(i));
                 array.pushMap(collectionDictionary);
               }
-              Log.d(TAG, "CallAllPlanetApiBySearch....." + array);
               promise.resolve(array);
             }
           } else {
@@ -568,7 +541,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWModelList<SWPlanet>> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallAllPlanetApiBySearch error ...... " + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
 
     });
@@ -592,7 +565,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
                 WritableMap collectionDictionary = convertJsonToMap(jsonArray.getJSONObject(i));
                 array.pushMap(collectionDictionary);
               }
-              Log.d(TAG, "CallAllSpeciesApiBySearch....." + array);
               promise.resolve(array);
             }
           } else {
@@ -607,7 +579,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWModelList<SWSpecies>> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallAllSpeciesApiBySearch error ...... " + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
 
     });
@@ -631,7 +603,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
                 WritableMap collectionDictionary = convertJsonToMap(jsonArray.getJSONObject(i));
                 array.pushMap(collectionDictionary);
               }
-              Log.d(TAG, "CallAllStarshipApiBySearch....." + array);
               promise.resolve(array);
             }
           } else {
@@ -646,7 +617,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWModelList<SWStarship>> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallAllStarshipApiBySearch error ...... " + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
 
     });
@@ -662,7 +633,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
         SWModelList<SWVehicle> res = response.body();
         Gson gson = new Gson();
         try {
-          Log.e(TAG, "response.code() " + response.code());
           if (response.code() == 200) {
             if (res.getResults() != null) {
               JSONArray jsonArray = new JSONArray(gson.toJson(res.getResults()));
@@ -671,7 +641,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
                 WritableMap collectionDictionary = convertJsonToMap(jsonArray.getJSONObject(i));
                 array.pushMap(collectionDictionary);
               }
-              Log.d(TAG, "CallAllVehicleApiBySearch....." + array);
               promise.resolve(array);
             }
           } else {
@@ -686,7 +655,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWModelList<SWVehicle>> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallAllVehicleApiBySearch error ...... " + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
 
     });
@@ -712,7 +681,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
                 WritableMap collectionDictionary = convertJsonToMap(jsonArray.getJSONObject(i));
                 array.pushMap(collectionDictionary);
               }
-              Log.d(TAG, "CallAllPeopleApiByPage....." + array);
               promise.resolve(array);
             }
           } else {
@@ -727,7 +695,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWModelList<SWPeople>> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallAllPeopleApiByPage error ...... " + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
 
     });
@@ -736,7 +704,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void CallAllFilmApiByPage(ReadableMap readableMap, Promise promise) throws JSONException {
     JSONObject jsonObject = readableMapToJson(readableMap);
-    Log.d(TAG, "jsobject............  " + jsonObject);
     Call<SWModelList<SWFilm>> call = swapiInterface.getFilmsByPages(jsonObject.getInt("page"));
     call.enqueue(new Callback<SWModelList<SWFilm>>() {
       @Override
@@ -752,7 +719,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
                 WritableMap collectionDictionary = convertJsonToMap(jsonArray.getJSONObject(i));
                 array.pushMap(collectionDictionary);
               }
-              Log.d(TAG, "CallAllFilmApiByPage....." + array);
               promise.resolve(array);
             }
           } else {
@@ -767,7 +733,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWModelList<SWFilm>> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallAllFilmApiByPage error ...... " + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
 
     });
@@ -791,7 +757,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
                 WritableMap collectionDictionary = convertJsonToMap(jsonArray.getJSONObject(i));
                 array.pushMap(collectionDictionary);
               }
-              Log.d(TAG, "CallAllPlanetApiByPage....." + array);
               promise.resolve(array);
             }
           } else {
@@ -806,7 +771,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWModelList<SWPlanet>> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallAllPlanetApiByPage error ...... " + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
 
     });
@@ -830,7 +795,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
                 WritableMap collectionDictionary = convertJsonToMap(jsonArray.getJSONObject(i));
                 array.pushMap(collectionDictionary);
               }
-              Log.d(TAG, "CallAllSpeciesApiByPage....." + array);
               promise.resolve(array);
             }
           } else {
@@ -845,7 +809,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWModelList<SWSpecies>> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallAllSpeciesApiByPage error ...... " + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
 
     });
@@ -869,7 +833,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
                 WritableMap collectionDictionary = convertJsonToMap(jsonArray.getJSONObject(i));
                 array.pushMap(collectionDictionary);
               }
-              Log.d(TAG, "CallAllStarshipApiByPage....." + array);
               promise.resolve(array);
             }
           } else {
@@ -884,7 +847,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWModelList<SWStarship>> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallAllStarshipApiByPage error ...... " + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
 
     });
@@ -908,7 +871,6 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
                 WritableMap collectionDictionary = convertJsonToMap(jsonArray.getJSONObject(i));
                 array.pushMap(collectionDictionary);
               }
-              Log.d(TAG, "CallAllVehicleApiByPage....." + array);
               promise.resolve(array);
             }
           } else {
@@ -923,7 +885,7 @@ public class SwapiCustomPluginModule extends ReactContextBaseJavaModule {
       public void onFailure(@NonNull Call<SWModelList<SWVehicle>> call, @NonNull Throwable t) {
         call.cancel();
         Log.d(TAG, "CallAllVehicleApiByPage error ...... " + t.toString());
-        promise.reject(t.toString());
+        promise.reject(t);
       }
 
     });
