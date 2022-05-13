@@ -16,6 +16,10 @@
         "source": "/home/pooja/.gradle/caches/transforms-2/files-2.1/1cb9b9ea592aa2ea85233be252327dcf/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
+        "merged": "/home/pooja/Desktop/swapi-custom-plugin/example/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ic_launcher.png.flat",
+        "source": "/home/pooja/.gradle/caches/transforms-2/files-2.1/3c88afe0c23254a5b562bd486d7b9c23/Swapi_Android-1.1.0/res/drawable-hdpi-v4/ic_launcher.png"
+    },
+    {
         "merged": "/home/pooja/Desktop/swapi-custom-plugin/example/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
         "source": "/home/pooja/.gradle/caches/transforms-2/files-2.1/1cb9b9ea592aa2ea85233be252327dcf/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
     },
@@ -86,6 +90,10 @@
     {
         "merged": "/home/pooja/Desktop/swapi-custom-plugin/example/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_black_16dp.png.flat",
         "source": "/home/pooja/.gradle/caches/transforms-2/files-2.1/1cb9b9ea592aa2ea85233be252327dcf/appcompat-1.1.0/res/drawable-hdpi-v4/abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "/home/pooja/Desktop/swapi-custom-plugin/example/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_ic_launcher.png.flat",
+        "source": "/home/pooja/.gradle/caches/transforms-2/files-2.1/3c88afe0c23254a5b562bd486d7b9c23/Swapi_Android-1.1.0/res/drawable-mdpi-v4/ic_launcher.png"
     },
     {
         "merged": "/home/pooja/Desktop/swapi-custom-plugin/example/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
@@ -1548,6 +1556,10 @@
         "source": "/home/pooja/.gradle/caches/transforms-2/files-2.1/1cb9b9ea592aa2ea85233be252327dcf/appcompat-1.1.0/res/drawable-hdpi-v4/abc_list_divider_mtrl_alpha.9.png"
     },
     {
+        "merged": "/home/pooja/Desktop/swapi-custom-plugin/example/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_launcher.png.flat",
+        "source": "/home/pooja/.gradle/caches/transforms-2/files-2.1/3c88afe0c23254a5b562bd486d7b9c23/Swapi_Android-1.1.0/res/drawable-xhdpi-v4/ic_launcher.png"
+    },
+    {
         "merged": "/home/pooja/Desktop/swapi-custom-plugin/example/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
         "source": "/home/pooja/.gradle/caches/transforms-2/files-2.1/1cb9b9ea592aa2ea85233be252327dcf/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png"
     },
@@ -1634,6 +1646,10 @@
     {
         "merged": "/home/pooja/Desktop/swapi-custom-plugin/example/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
         "source": "/home/pooja/.gradle/caches/transforms-2/files-2.1/1cb9b9ea592aa2ea85233be252327dcf/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_scrubber_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/home/pooja/Desktop/swapi-custom-plugin/example/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_launcher.png.flat",
+        "source": "/home/pooja/.gradle/caches/transforms-2/files-2.1/3c88afe0c23254a5b562bd486d7b9c23/Swapi_Android-1.1.0/res/drawable-xxhdpi-v4/ic_launcher.png"
     },
     {
         "merged": "/home/pooja/Desktop/swapi-custom-plugin/example/android/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",

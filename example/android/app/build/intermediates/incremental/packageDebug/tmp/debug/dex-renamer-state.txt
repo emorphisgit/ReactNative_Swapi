@@ -1,4 +1,4 @@
-#Tue May 10 13:23:31 IST 2022
+#Thu May 12 19:20:32 IST 2022
 base.2=/home/pooja/Desktop/swapi-custom-plugin/example/android/app/build/intermediates/dex/debug/mergeLibDexDebug/out/classes_0.dex
 path.2=classes_0.dex
 base.1=/home/pooja/Desktop/swapi-custom-plugin/example/android/app/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex

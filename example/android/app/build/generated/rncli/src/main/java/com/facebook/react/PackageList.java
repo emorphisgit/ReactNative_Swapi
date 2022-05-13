@@ -11,7 +11,7 @@ import com.facebook.react.shell.MainReactPackage;
 import java.util.Arrays;
 import java.util.ArrayList;
 
-// react-native-swapi-custom-plugin
+// rn-swapi-plugin
 import com.reactnativeswapicustomplugin.SwapiCustomPluginPackage;
 
 public class PackageList {
